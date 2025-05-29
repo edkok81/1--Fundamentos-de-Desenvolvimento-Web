@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo Adivinhe o número</title>
+    <style>
+      html {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      body {
+        width: 70%;
+        max-width: 900px;
+        min-width: 500px;
+        margin: 0 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Jogo Adivinhe o número</h1>
+    <p>Selecionei um número aleatório entre <b>1</b> e <b>100</b>.</p>
+    <p>Tente adivinhar o número! Você tem até 10 chances.</p>
+    <p>Lhe direi se o seu palpite é um valor <b>mais alto</b> ou <b>mais baixo</b> que o número aleatório selecionado.</p>
+
+    <div class="form">
+        <label for="campoPalpite">Digite seu palpite: </label>
+        <input type="text" id="campoPalpite" class="campoPalpite">
+        <input type="submit" value="Enviar palpite" class="envioPalpite" onclick="conferirPalpite();">        
+    </div>
+
+    <div class="cjtoResultados">
+        <p class="palpites"></p>
+        <p class="ultimoResultado"></p>
+        <p class="baixoOuAlto"></p>
+    </div>
+
+    <script>
+        //cria um número aleatório entre 1 e 100
+        var numeroAleatorio = Math.floor(Math.random() *  100) + 1;
+
+        // Cria variáveis ligadas a elementos com as classes indicadas no querySelector,
+        // para ATUALIZAR esses elementos de acordo com as jogadas.
+        var palpites = document.querySelector('.palpites');
+        var ultimoResultado = document.querySelector('.ultimoResultado');
+        var baixoOuAlto = document.querySelector('.baixoOuAlto');
+
+        // Cria variáveis para elementos INPUT com as classes indicadas no querySelector,
+        // para OBTER DADOS desses elementos de acordo com as jogadas. 
+        var envioPalpite = document.querySelector('.envioPalpite');
+        var campoPalpite = document.querySelector('.campoPalpite');
+        
+        var contagemPalpites = 1; //inicia a contagem dos palpites. Max = 10.
+        var botaoReinicio;
+
+        //código para tratar fim do jogo
+        function configFimDeJogo() {
+            campoPalpite.disabled = true; //desabilita campo de input
+            envioPalpite.disabled = true; //desaaabilita campo de input
+            botaoReinicio =  document.createElement('button');
+            botaoReinicio.textContent = 'Iniciar novo jogo';
+            document.body.appendChild(botaoReinicio);
+            botaoReinicio.addEventListener('click', reiniciarJogo);            
+        }
+
+        //código para reiniciar o jogo
+        function reiniciarJogo() {
+            contagemPalpites = 1;
+
+            var reiniciarParas = document.querySelectorAll('.cjtoResultados p');
+            for (var i = 0; i < reiniciarParas.length; i++) {
+                reiniciarParas[i].textContent = '';
+            }
+            botaoReinicio.parentNode.removeChild(botaoReinicio);
+            campoPalpite.disabled = false;
+            envioPalpite.disabled = false;
+            campoPalpite.value = '';
+            campoPalpite.focus();
+            ultimoResultado.style.backgroundColor = 'white';
+            numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        }
+
+        //código para conferir o palpite
+        function conferirPalpite() {
+            var palpiteUsuario = Number(campoPalpite.value);
+            if (contagemPalpites === 1) {
+                palpites.textContent = 'Palpites anteriores: ';
+            }
+            palpites.textContent += palpiteUsuario + ' '; //informa os números já palpitados
+
+            //condicionais para analisar o número digitado pelo usuário
+            if (palpiteUsuario === numeroAleatorio) {
+              ultimoResultado.textContent = 'Parabéns, você acertou! O número certo é ' + palpiteUsuario + '!';
+              ultimoResultado.style.backgroundColor = 'lightgreen';
+              baixoOuAlto.textContent = '';
+
+              configFimDeJogo();            
+            
+            } else if (contagemPalpites === 10) {
+              ultimoResultado.textContent = '|||Fim do Jogo|||';
+              baixoOuAlto.textContent = '';
+
+              configFimDeJogo();              
+            
+            } else {
+              ultimoResultado.textContent = 'Errado!';
+              ultimoResultado.style.backgroundColor = 'lightcoral';
+              
+            }
+
+            contagemPalpites++;
+            campoPalpite.value = '';
+            campoPalpite.focus();
+        }
+
+
+    </script>
+  </body>
+</html>
