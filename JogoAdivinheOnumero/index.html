@@ -106,15 +106,18 @@
             } else {
               ultimoResultado.textContent = 'Errado!';
               ultimoResultado.style.backgroundColor = 'lightcoral';
+              if (palpiteUsuario < numeroAleatorio) {
+                baixoOuAlto.textContent = 'Seu palpite está BAIXO!';                
               
+              } else if (palpiteUsuario > numeroAleatorio) {
+                baixoOuAlto.textContent = 'Seu palpite está ALTO!';
+              }
             }
 
             contagemPalpites++;
             campoPalpite.value = '';
             campoPalpite.focus();
         }
-
-
     </script>
   </body>
 </html>
