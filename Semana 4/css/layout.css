@@ -1,0 +1,36 @@
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+.sidebar a.active {
+    background-color: rgb(81, 92, 104);
+    color: white;
+}
+.sidebar a:hover:not(.active) {
+    background-color: rgb(158, 183, 209);
+    color: white;
+}
+
+.content {
+    padding: 1px 16px;
+    position: inherit;
+    margin-left: 200px;
+    width: 700px;
+    background: #fff;
+    display: grid;
+    overflow: auto;
+    height: 100%;    
+}
+
