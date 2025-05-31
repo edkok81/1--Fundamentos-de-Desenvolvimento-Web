@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="css/layout.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/cupcake1.png">
     <title>Exemplo Front-End</title>
-    <link rel="stylesheet" href="css/layout.css" type="text/css" />
   </head>
 
   <body>
@@ -21,45 +22,46 @@
     <div class="content">
       <h2 class="titleTop">Cupcake Backery Shop</h2>
       <h3 class="titleBottom">Menu Tradicional</h3>
+      
       <div class="first">
         <div class="menu">
           <img class="imgStamp" src="img/CupFlavor1.png" alt="CupFlavor1">
-          <input class="modalButton" type="button" value="Saiba Mais..." id="CupFlavor1Button">
+          <input class="modalButton" type="button" value="Saiba Mais..." onclick="openModal('CupFlavor1')";>
         </div>
 
         <div class="menu">
           <img class="imgStamp" src="img/CupFlavor2.png" alt="CupFlavor2">
-          <input class="modalButton" type="button" value="Saiba Mais..." id="CupFlavor1Button">
+          <input class="modalButton" type="button" value="Saiba Mais..." onclick="openModal('CupFlavor2')";>
         </div>
 
         <div class="menu">
           <img class="imgStamp" src="img/CupFlavor3.png" alt="CupFlavor3">
-          <input class="modalButton" type="button" value="Saiba Mais..." id="CupFlavor1Button">
+          <input class="modalButton" type="button" value="Saiba Mais..." onclick="openModal('CupFlavor3')";>
         </div>
       </div>
 
       <div class="second">
         <div class="menu">
           <img class="imgStamp" src="img/CupFlavor4.png" alt="CupFlavor4">
-          <input class="modalButton" type="button" value="Saiba Mais..." id="CupFlavor1Button">
+          <input class="modalButton" type="button" value="Saiba Mais..." onclick="openModal('CupFlavor4')";>
         </div>
 
         <div class="menu">
           <img class="imgStamp" src="img/CupFlavor5.png" alt="CupFlavor5">
-          <input class="modalButton" type="button" value="Saiba Mais..." id="CupFlavor1Button">
+          <input class="modalButton" type="button" value="Saiba Mais..." onclick="openModal('CupFlavor5')";>
         </div>
 
         <div class="menu">
           <img class="imgStamp" src="img/CupFlavor6.png" alt="CupFlavor6">
-          <input class="modalButton" type="button" value="Saiba Mais..." id="CupFlavor1Button">
+          <input class="modalButton" type="button" value="Saiba Mais..." onclick="openModal('CupFlavor6')";>
         </div>
       </div>
     </div>
 
-    <!--Modal Detalhes-->
-    <div id="KnowMore" class="modal">
+    <!--Modal Detalhes-->    
+    <div id="knowMore" class="modal">
       <header>
-        <span id="closeModalButton" class="topright">X</span>  
+        <span onclick="closeModal();" class="topright">X</span>
       </header>
       <div>
         <p id="txt1" class="infoH"></p>

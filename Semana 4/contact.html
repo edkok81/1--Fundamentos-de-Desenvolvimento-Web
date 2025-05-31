@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="css/layout.css" type="text/css">
+    <link rel="icon" type="img/png" href="img/cupcake.jpg">
+    <title>Exemplo Front-End</title>
+</head>
+
+<body>
+    
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a class="active" href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </div>
+    
+    <div class="content">
+        <h2 class="titleTop">Cupcake Backery Shop</h2>
+        <h3 class="titleBottom">Deixe o seu Contato!</h3>
+        <div class="contact-form">
+            <form method="GET" action="contact_action.html">
+                <div class="form-group">
+                    <label for="name"><i class="fa fa-user" aria-hidden="true"></i></label>
+                    <input type="text" name="name" id="name" placeholder="Seu Nome" required>
+                </div><br>
+                <div class="form-group">
+                    <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+                    <input type="email" name="email" id="email" placeholder="Seu Email" required>
+                </div><br>
+                <div class="form-group">
+                    <label for="celular"><i class="fa fa-phone" aria-hidden="true"></i></label>
+                    <input type="tel" name="celular" id="celular" pattern="\(\d{2}\)\s\d{4,5}-\d{4}$"
+                    onkeydown="return mascaraTelefone(event)" placeholder="Seu celular" title="(xx) xxxxx-xxxx" required>
+                </div><br>
+                <div class="form-group">
+                    <label for="dt_nasc"><i class="fa fa-birthday-cake" aria-hidden="true"></i></label>
+                    <input type="date" name="dt_nasc" id="dt_nasc" title="Data de Nascimento">
+                </div><br>
+                <div class="form-group">
+                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />
+                    <label for="agree-term" class="label-agree-term"><span><span></span></span>Eu concordo com os <a href="#" class="term-service">termos de serviço</a></label>
+                </div><br>
+                <div class="form-group form-button">
+                    <input type="submit" class="form-submit" value="Enviar">
+                    <input type="reset" class="form-submit" value="Limpar">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        
+        function mascaraTelefone(event) {
+            let tecla = event.key;
+            // Regex:
+            // g = não termina verificação enquanto não houver combinação para todos os elementos
+            // \D+ = troca qualquer caractere que não seja um dígito por caracter vazio
+            let telefone = event.target.value.replace(/\D+/g, "");
+            // Regex: i = case insensitive
+            // Se Tecla é número, concatena com telefone
+            if(/^[0-9]$/i.test(tecla)) {
+                telefone = telefone + tecla;
+                let tamanho = telefone.length;
+                if(tamanho >= 12) { // Se telefone com 12 ou mais caracteres, não faz mais nada
+                    return false;
+                }
+                if(tamanho > 10) {
+                    telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+                } else if(tamanho > 5) {
+                    telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+                } else if(tamanho > 2) {
+                    telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+                } else {
+                    telefone = telefone.replace(/^(\d*)/, "($1");
+                }
+                event.target.value = telefone;
+            }
+            if(!["Backspace", "Delete", "Tab"].includes(tecla)) {
+                return false;
+            }
+        }
+        
+        // Espera até que o DOM esteja totalmente carregado
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Adiciona event listener ao campo de telefone para aplicar a máscara
+            document.getElementById('celular').addEventListener('keydown', mascaraTelefone);
+            
+        });
+    </script>
+</body>
+
+</html>
+
