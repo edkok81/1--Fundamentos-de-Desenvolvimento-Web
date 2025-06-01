@@ -1,54 +1,188 @@
+/* --- Reset Básico e Tipografia --- */
 * {
-    font-family: "Nunito", sans-serif;
-    font-weight: 100;
+    box-sizing: border-box;
 }
 
-.top-navbar {    
+body {
+    font-family: "Nunito", sans-serif;
+    font-weight: 200; /* Peso de fonte mais legível para o corpo */
+    line-height: 1.6; /* Melhoria de legibilidade para parágrafos */
     margin: 0;
     padding: 0;
-    height: 100%;
+    background-color: #f8f8f8; /* Cor de fundo suave */
+    color: #333; /* Cor de texto padrão */
 }
 
+/* --- Cabeçalho --- */
+.header {
+    text-align: center;
+    padding: 20px 0; /* Adiciona padding vertical */
+    background-color: #5d4037; /* Cor de fundo para o cabeçalho */
+    color: white; /* Cor do texto no cabeçalho */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+}
+
+.header h1 {
+    margin: 0; /* Remove margem padrão do h1 */
+    font-family: "Zain", sans-serif; /* Usando a fonte Zain para o título */
+    font-weight: 400; /* Peso mais forte para o título */
+    font-size: 3em; /* Tamanho do título */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+/* --- Navegação Principal --- */
 .top-navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     background-color: #423f3f;
-    overflow: hidden;
+    overflow: hidden; /* Contém os floats ou funciona bem com flexbox */
+    display: flex; /* Usando Flexbox para o menu */
+    justify-content: flex-start;
+    align-items: center;
 }
 
-li a {
-    float: left;
-    color:azure;    
+.top-navbar ul li a {
     display: block;
-    padding: 8px;
+    color: azure;
+    padding: 15px 20px; /* Aumenta a área de clique */
     text-align: center;
     text-decoration: none;
+    font-variant: small-caps; /* Aplica small-caps apenas nos links do menu */
+    transition: background-color 0.5s ease; /* Transição suave para hover */
 }
 
-.active {
-  background-color: #914d0c;
+/* Item ativo do menu */
+.top-navbar ul li a.active {
+    background-color: #5b3109;
+    font-weight: bold; /* Destaca o item ativo */
 }
 
-li a:hover:not(.active) {
-  background-color: #111;
+/* Efeito hover para itens não ativos */
+.top-navbar ul li a:hover:not(.active) {
+    background-color: #111;
 }
 
-.image {
-  padding: 10px 10px;
-  float: left;  
+/* --- Conteúdo Principal --- */
+.content {
+    display: flex; /* Flexbox para o layout principal */
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+    justify-content: center; /* Centraliza as colunas */
+    padding: 20px;
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 30px auto; /* Centraliza o container de conteúdo */
+    gap: 40px; /* Espaçamento entre as colunas left e right */
 }
 
-div .gallery {
-  border: 1px solid #ccc;
+/* --- Seção de Introdução --- */
+.intro {
+    text-align: center;
+    width: 100%; /* Ocupa a largura total dentro do .content */
+    margin-bottom: 40px;
 }
 
-div .gallery:hover {
-  border: 1px solid #777;
+.intro .titleTop {
+    font-family: "Nunito", sans-serif;
+    font-size: 3.5em;
+    color: #1c4e60;
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: 700;
+    font-variant: small-caps;
 }
 
-div .desc {
-  padding: 15px;
-  text-align: center;
+.intro .titleBottom {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5em;
+    color: #666;
+    font-weight: 300;
 }
 
+/* --- Colunas Esquerda e Direita (Galeria) --- */
+.left, .right {
+    flex: 1; /* Permite que as colunas cresçam e encolham */
+    min-width: 300px; /* Largura mínima antes de empilhar */
+    display: flex;
+    flex-direction: column; /* Itens dentro da coluna se organizam verticalmente */
+    gap: 20px; /* Espaçamento entre os itens da galeria dentro da coluna */
+}
+
+/* --- Item da Galeria (Antigo .image > .gallery) --- */
+.image .gallery { /* Classe consolidada conforme sugerido no HTML */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra mais definida */
+    transition: all 0.3s ease; /* Transição suave para o hover */
+    overflow: hidden; /* Garante que a imagem não saia dos cantos arredondados */
+    background-color: #fff;
+}
+
+.image .gallery:hover {
+    border: 1px solid #a9a9a9;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-5px); /* Efeito de "elevação" */
+}
+
+.image .gallery img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove o espaço extra abaixo da imagem */
+}
+
+.image .gallery .desc { /* Mais específico para o desc da galeria */
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    background-color: #f9f9f9;
+}
+
+/* --- Rodapé --- */
+.footer {
+    background-color: #423f3f; /* Cor consistente com a navbar */
+    color: azure;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px; /* Espaçamento acima do rodapé */
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+    .top-navbar ul {
+        flex-direction: column; /* Empilha os itens do menu em telas pequenas */
+        align-items: stretch; /* Estica os itens para preencher a largura */
+    }
+
+    .top-navbar ul li:last-child {
+        margin-left: 0; /* Remove o auto-margin para o último item empilhado */
+    }
+
+    .content {
+        flex-direction: column; /* Empilha as colunas left/right em telas pequenas */
+        padding: 15px;
+        gap: 20px; /* Espaçamento menor entre os itens empilhados */
+    }
+
+    .intro .titleTop {
+        font-size: 2.5em;
+    }
+
+    .intro .titleBottom {
+        font-size: 1.1em;
+    }
+
+    .header h1 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-navbar ul li a {
+        padding: 12px 15px;
+    }
+}
