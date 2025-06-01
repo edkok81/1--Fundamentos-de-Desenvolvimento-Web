@@ -1,0 +1,54 @@
+* {
+    font-family: "Nunito", sans-serif;
+    font-weight: 100;
+}
+
+.top-navbar {    
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.top-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #423f3f;
+    overflow: hidden;
+}
+
+li a {
+    float: left;
+    color:azure;    
+    display: block;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.active {
+  background-color: #914d0c;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.image {
+  padding: 10px 10px;
+  float: left;  
+}
+
+div .gallery {
+  border: 1px solid #ccc;
+}
+
+div .gallery:hover {
+  border: 1px solid #777;
+}
+
+div .desc {
+  padding: 15px;
+  text-align: center;
+}
+

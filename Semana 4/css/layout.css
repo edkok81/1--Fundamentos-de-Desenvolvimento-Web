@@ -278,3 +278,25 @@ p {
     color: rgb(97, 112, 128);
     text-align: center;
 }
+
+.content .coluna1 div {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 30px;
+    background-color:lightgray;
+    border-radius: 8px;
+    color: black;
+    font-weight: 700;
+}
+
+.content .coluna2 div {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 30px;
+    background-color:lightgray;
+    border-radius: 8px;
+    color: black;
+    font-weight: 700;
+}
