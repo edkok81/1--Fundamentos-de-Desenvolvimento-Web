@@ -1,43 +1,40 @@
-/* --- Reset Básico e Tipografia --- */
 * {
     box-sizing: border-box;
 }
 
+/* Afeta todo o HTML */
 body {
     font-family: "Nunito", sans-serif;
-    font-weight: 200; /* Peso de fonte mais legível para o corpo */
-    line-height: 1.6; /* Melhoria de legibilidade para parágrafos */
+    font-weight: 200;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8; /* Cor de fundo suave */
-    color: #333; /* Cor de texto padrão */
+    background-color: #f8f8f8;
+    color: #333;
 }
 
-/* --- Cabeçalho --- */
+/* Cabeçalho */
 .header {
     text-align: center;
-    padding: 20px 0; /* Adiciona padding vertical */
-    background-color: #5d4037; /* Cor de fundo para o cabeçalho */
-    color: white; /* Cor do texto no cabeçalho */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+    padding: 20px 0;
+    background-color: #5d4037;
+    color: white;
 }
 
 .header h1 {
-    margin: 0; /* Remove margem padrão do h1 */
-    font-family: "Zain", sans-serif; /* Usando a fonte Zain para o título */
-    font-weight: 400; /* Peso mais forte para o título */
-    font-size: 3em; /* Tamanho do título */
-    letter-spacing: 2px; /* Espaçamento entre letras */
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 5px;
 }
 
-/* --- Navegação Principal --- */
+/* Menu Principal */
 .top-navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     background-color: #423f3f;
-    overflow: hidden; /* Contém os floats ou funciona bem com flexbox */
-    display: flex; /* Usando Flexbox para o menu */
+    overflow: hidden;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
 }
@@ -45,17 +42,17 @@ body {
 .top-navbar ul li a {
     display: block;
     color: azure;
-    padding: 15px 20px; /* Aumenta a área de clique */
+    padding: 15px 20px;
     text-align: center;
     text-decoration: none;
-    font-variant: small-caps; /* Aplica small-caps apenas nos links do menu */
-    transition: background-color 0.5s ease; /* Transição suave para hover */
+    font-variant: small-caps; 
+    transition: background-color 0.7s ease;
 }
 
 /* Item ativo do menu */
 .top-navbar ul li a.active {
     background-color: #5b3109;
-    font-weight: bold; /* Destaca o item ativo */
+    font-weight: bold;
 }
 
 /* Efeito hover para itens não ativos */
@@ -63,22 +60,60 @@ body {
     background-color: #111;
 }
 
-/* --- Conteúdo Principal --- */
+/* Principal index.html */
 .content {
-    display: flex; /* Flexbox para o layout principal */
-    flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
-    justify-content: center; /* Centraliza as colunas */
-    padding: 20px;
-    max-width: 1200px; /* Largura máxima do conteúdo */
-    margin: 30px auto; /* Centraliza o container de conteúdo */
-    gap: 40px; /* Espaçamento entre as colunas left e right */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
 }
 
-/* --- Seção de Introdução --- */
+/* Principal form.html */
+.content_form {
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 80px 80px 80px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Principal formAction.html */
+.actionContent {
+    font-weight: 400;
+    display: grid;
+    flex-direction: auto;    
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 0 40px 40px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.actionContent .actionColumn1 .actionColumn2 {
+    
+}
+
+/* Títulos da Introdução */
 .intro {
     text-align: center;
-    width: 100%; /* Ocupa a largura total dentro do .content */
-    margin-bottom: 40px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* Título form.html */
+.content_form h3 {
+    font-weight: 300;
+}
+
+/* Título actionForm.html */
+.actionContent h3 {
+    font-weight: 300;
 }
 
 .intro .titleTop {
@@ -87,7 +122,7 @@ body {
     color: #1c4e60;
     margin-bottom: 0;
     padding: 0;
-    font-weight: 700;
+    font-weight: 600;
     font-variant: small-caps;
 }
 
@@ -95,55 +130,53 @@ body {
     font-family: "Nunito", sans-serif;
     font-size: 1.5em;
     color: #666;
-    font-weight: 300;
+    font-weight: 200;
 }
 
-/* --- Colunas Esquerda e Direita (Galeria) --- */
+/* Colunas Esquerda e Direita */
 .left, .right {
-    flex: 1; /* Permite que as colunas cresçam e encolham */
-    min-width: 300px; /* Largura mínima antes de empilhar */
+    flex: 1; 
+    min-width: 300px;
     display: flex;
-    flex-direction: column; /* Itens dentro da coluna se organizam verticalmente */
-    gap: 20px; /* Espaçamento entre os itens da galeria dentro da coluna */
+    flex-direction: column; 
+    gap: 20px;
 }
 
-/* --- Item da Galeria (Antigo .image > .gallery) --- */
-.image .gallery { /* Classe consolidada conforme sugerido no HTML */
+/* Item da Galeria */
+.image .gallery { 
     border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra mais definida */
-    transition: all 0.3s ease; /* Transição suave para o hover */
-    overflow: hidden; /* Garante que a imagem não saia dos cantos arredondados */
-    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.7s ease;
 }
 
 .image .gallery:hover {
-    border: 1px solid #a9a9a9;
+    border: 2px solid #a9a9a9;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transform: translateY(-5px); /* Efeito de "elevação" */
+    transform: translateY(-5px);
 }
 
 .image .gallery img {
     width: 100%;
     height: auto;
-    display: block; /* Remove o espaço extra abaixo da imagem */
+    display: block;
 }
 
-.image .gallery .desc { /* Mais específico para o desc da galeria */
+.image .gallery .desc {
     padding: 15px;
     text-align: center;
     font-size: 1.1em;
-    color: #555;
-    background-color: #f9f9f9;
+    color: #ffffff;
+    background-color: #1c4e60;
 }
 
-/* --- Rodapé --- */
+/* Rodapé */
 .footer {
-    background-color: #423f3f; /* Cor consistente com a navbar */
+    background-color: #423f3f;
     color: azure;
     padding: 20px;
     width: 100%;
     text-align: center;
-    margin-top: 30px; /* Espaçamento acima do rodapé */
+    margin-top: 20px; 
 }
 
 .footer p {
@@ -151,21 +184,21 @@ body {
     font-size: 0.9em;
 }
 
-/* --- Media Queries para Responsividade --- */
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
     .top-navbar ul {
-        flex-direction: column; /* Empilha os itens do menu em telas pequenas */
-        align-items: stretch; /* Estica os itens para preencher a largura */
+        flex-direction: column; 
+        align-items: stretch;
     }
 
     .top-navbar ul li:last-child {
-        margin-left: 0; /* Remove o auto-margin para o último item empilhado */
+        margin-left: 0;
     }
 
     .content {
-        flex-direction: column; /* Empilha as colunas left/right em telas pequenas */
+        flex-direction: column;
         padding: 15px;
-        gap: 20px; /* Espaçamento menor entre os itens empilhados */
+        gap: 20px; 
     }
 
     .intro .titleTop {
