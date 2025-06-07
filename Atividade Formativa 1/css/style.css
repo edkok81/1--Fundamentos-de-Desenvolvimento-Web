@@ -246,6 +246,22 @@ body {
     font-size: 0.9em;
 }
 
+.aboutTexto {
+    margin: 30px;
+    padding: 20px;
+}
+
+.aboutTexto span {
+    font-weight: 500;
+}
+
+.aboutBottom {
+    display: flex;
+    justify-content: center;
+}
+
+
+
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     .top-navbar ul {
