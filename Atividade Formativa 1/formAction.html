@@ -22,76 +22,51 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="form.html">Formulário</a></li>
-            <li><a class="active" href="formAction.html">FormAction</a></li>
+            
             <li><a href="about.html">Sobre</a></li>
         </ul>
     </div>
     
-     <div class="actionContent">
-        <h3 class="actionTitleBottom">Confirmação dos dados. Clique em ENVIAR para finalizar.</h3>
-
-        <div class="actionColumn1">
-            <div>
-                <p>Chave</p>
-            </div>
-            
-            <div>
-                <p>Nome</p>
-            </div>
-            
-            <div>
-                <p>Email</p>
-            </div>
-            
-            <div>
-                <p>Celular</p>
-            </div>
-            
-            <div>
-                <p>Data de Nascimento</p>
-            </div>
-            
-            <div>
-                <p>Aceitação Termos</p>
-            </div>
-        </div>
+    <div class="actionContent">
+        <h3 class="actionTitleBottom">Confirmação dos dados</h3>
 
         
-        <div class="actionColumn2">
-            <div>
-                <p>Valor</p>
+        <div class="dados-container">
+            <div id="dadosUsuario"></div>            
+            
+            <div class="actionColumn1">
+                <div class="actionTitle1"><p>Chave</p></div>
+                <div><p>Nome:</p></div>
+                <div><p>Email:</p></div>
+                <div><p>Celular:</p></div>
+                <div><p>Data de Nascimento:</p></div>
+                <div><p>Aceitação Termos:</p></div>
             </div>
             
-            <div>
-                <p>xxx</p>
-            </div>
+            <form id="formFinal" action="processa_dados.php" method="get">
+                <div class="column2-pacote">
+                    <div class="actionColumn2">
+                        <div class="actionTitle2"><p>Valor</p></div>
+                        <div><p><input type="hidden" id="confNome" name="nome"></p></div>
+                        <div><p><input type="hidden" id="confEmail" name="email"></p></div>
+                        <div><p><input type="hidden" id="confCelular" name="celular"></p></div>
+                        <div><p><input type="hidden" id="confDataNasc" name="dataNasc"></p></div>
+                        <div><p><input type="hidden" id="confTermos" name="termos"></p></div>
+                    </div>
+                    
+                    
+                    <input type="submit" class="formAction-submit" value="Enviar">
+                </div>
+            </form>
             
-            <div>
-                <p>xxx</p>
-            </div>
-            
-            <div>
-                <p>xxx</p>
-            </div>
-            
-            <div>
-                <p>xxx</p>
-            </div>
-            
-            <div>
-                <p>xxx</p>
-            </div>
         </div>
-
-        <input type="submit" class="form-submit" value="Enviar">
-        
     </div>
-
-    
     
     <div class="footer">
         <p>Atividade Formativa 1 - Fundamentos da Programação Web - PUCPR 2025</p>
     </div>
+
+    <script src="/js/script.js"></script>
     
 </body>
-    
+

@@ -28,6 +28,12 @@ body {
 }
 
 /* Menu Principal */
+.top-navbar {
+    position: sticky; /*Comando que faz o elemento permanecer mesmo com rolagem*/
+    top: 0; /*Deixa o elemento sempre 'grudado' na parte de cima da página'*/
+    z-index: 100; /*Deixa o elemento sempre sobre os outros*/
+}
+
 .top-navbar ul {
     list-style-type: none;
     margin: 0;
@@ -83,20 +89,76 @@ body {
     gap: 20px;
 }
 
+/* Estilo para o botão da form.html */
+.form-submit {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6a6666;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+}
+
+.form-submit:hover {
+    background-color: #0c0a0a;
+}
+
+
 /* Principal formAction.html */
-.actionContent {
-    font-weight: 400;
-    display: grid;
-    flex-direction: auto;    
-    align-items: center;
-    max-width: 1200px;
-    padding: 0 0 40px 40px;
-    margin: 0 auto;
+.dados-container {
+    display: flex;
+    justify-content: center;
     gap: 20px;
 }
 
-.actionContent .actionColumn1 .actionColumn2 {
-    
+.actionContent {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.actionTitleBottom {
+    text-align: center; 
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.column2-pacote {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actionColumn1 > div, .actionColumn2 > div {
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 2px solid #eee;
+}
+
+.actionTitle1 p, .actionTitle2 p {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Estilo para o botão actionForm*/
+.formAction-submit {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6a6666;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+}
+
+.formAction-submit:hover {
+    background-color: #0c0a0a;
 }
 
 /* Títulos da Introdução */
@@ -169,7 +231,7 @@ body {
     background-color: #1c4e60;
 }
 
-/* Rodapé */
+/* Footer */
 .footer {
     background-color: #423f3f;
     color: azure;
@@ -212,10 +274,15 @@ body {
     .header h1 {
         font-size: 2.2em;
     }
+
 }
 
 @media (max-width: 480px) {
     .top-navbar ul li a {
         padding: 12px 15px;
+    }
+
+    .form-submit {
+        flex-direction: column;
     }
 }
